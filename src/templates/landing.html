@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#e0e7ff" media="(prefers-color-scheme: light)" />
+        <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+        <title>Soon — Segera Hadir</title>
+        <meta name="description" content="Soon adalah cara sederhana untuk membangun daftar calon pelanggan sebelum produk Anda diluncurkan. Segera hadir." />
+        <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%236366f1'/%3E%3Cstop offset='1' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='url(%23g)'/%3E%3Cg transform='translate(6 6) scale(0.8333)' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2v4'/%3E%3Cpath d='m16.2 7.8 2.9-2.9'/%3E%3Cpath d='M18 12h4'/%3E%3Cpath d='m16.2 16.2 2.9 2.9'/%3E%3Cpath d='M12 18v4'/%3E%3Cpath d='m4.9 19.1 2.9-2.9'/%3E%3Cpath d='M2 12h4'/%3E%3Cpath d='m4.9 4.9 2.9 2.9'/%3E%3C/g%3E%3C/svg%3E" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="{{stylesheet}}" />
+    </head>
+    <body>
+        <div class="page">
+            <div class="glow" aria-hidden="true"></div>
+
+            <main>
+                <div class="hero container">
+                    <span class="badge">
+                        <span class="badge-dot" aria-hidden="true"></span>
+                        Segera Hadir
+                    </span>
+
+                    <div class="soon-brand">
+                        <span class="brand-mark brand-mark-lg" aria-hidden="true">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            >
+                                <path d="M12 2v4" />
+                                <path d="m16.2 7.8 2.9-2.9" />
+                                <path d="M18 12h4" />
+                                <path d="m16.2 16.2 2.9 2.9" />
+                                <path d="M12 18v4" />
+                                <path d="m4.9 19.1 2.9-2.9" />
+                                <path d="M2 12h4" />
+                                <path d="m4.9 4.9 2.9 2.9" />
+                            </svg>
+                        </span>
+                        <span class="brand-name brand-name-lg">Soon</span>
+                    </div>
+
+                    <h1>Sesuatu yang baru sedang kami siapkan</h1>
+
+                    <p class="subtitle">
+                        Soon adalah cara sederhana untuk membangun daftar calon
+                        pelanggan sebelum produk Anda diluncurkan. Daftarkan
+                        email Anda untuk mendapat kabar saat peluncuran.
+                    </p>
+
+                    <div class="signup-block">
+                        <form class="signup" action="/subscribe" method="post" novalidate>
+                            <div class="signup-row">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    autocomplete="off"
+                                    required
+                                    placeholder="nama@email.com"
+                                    aria-label="Alamat email"
+                                />
+                                <button type="submit">Daftar</button>
+                            </div>
+                            <input
+                                type="text"
+                                name="honeypot"
+                                tabindex="-1"
+                                autocomplete="off"
+                                class="hp"
+                                aria-hidden="true"
+                            />
+                            <input type="hidden" name="rendered_at" value="{{rendered_at}}" />
+                        </form>
+                        <p class="notice{{notice_class}}">{{notice_text}}</p>
+                    </div>
+
+                    <div class="features">
+                        <div class="card">
+                            <span class="card-icon tone-indigo" aria-hidden="true">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                    <path d="M2 12h20" />
+                                </svg>
+                            </span>
+                            <h3>Halaman cepat</h3>
+                            <p>Buat halaman peluncuran dalam hitungan menit.</p>
+                        </div>
+
+                        <div class="card">
+                            <span class="card-icon tone-sky" aria-hidden="true">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                                    <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                                </svg>
+                            </span>
+                            <h3>Domain sendiri</h3>
+                            <p>Pakai subdomain gratis atau domain kustom Anda.</p>
+                        </div>
+
+                        <div class="card">
+                            <span class="card-icon tone-emerald" aria-hidden="true">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="2"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                >
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" x2="12" y1="15" y2="3" />
+                                </svg>
+                            </span>
+                            <h3>Kumpulkan prospek</h3>
+                            <p>Ekspor daftar email pelanggan kapan saja.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <footer>
+                <div class="footer-inner container">
+                    <p>© 2026 Soon. Semua hak dilindungi.</p>
+                    <p>Fokus pada produk Anda. Mulai kumpulkan audiens lebih awal.</p>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>

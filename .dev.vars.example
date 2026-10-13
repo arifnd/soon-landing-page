@@ -1,0 +1,20 @@
+# Copy to .dev.vars (git-ignored) for local `wrangler dev`.
+#
+# Subscribers are stored in Resend (Contacts); there is no database binding.
+
+# Base URL used to build the confirmation/unsubscribe links. Point it at the
+# local dev server so the emailed links work while testing.
+PUBLIC_BASE_URL=http://localhost:8787
+
+# Resend API key — used for the Contacts API and for sending emails.
+# IMPORTANT: this must be a "Full access" key. A "Sending access" key returns
+# `401 restricted_api_key` on every Contacts request.
+RESEND_API_KEY=
+EMAIL_FROM="Soon <hello@soon.example.com>"
+
+# Secret used to sign confirmation/unsubscribe tokens. Generate one with:
+#   openssl rand -base64 32
+TOKEN_SECRET=
+
+# Optional: Resend Segment confirmed contacts are added to.
+# RESEND_SEGMENT_ID=00000000-0000-0000-0000-000000000000

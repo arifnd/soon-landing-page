@@ -1,0 +1,542 @@
+/*
+ * Coming-soon landing stylesheet.
+ *
+ * Served as a static asset at /assets/landing.css (see the [assets] block in
+ * wrangler.toml) and linked from src/templates/landing.html.ts, so the page
+ * needs no inline <style> and satisfies a `style-src 'self'` policy.
+ */
+
+:root {
+    --radius: 0.625rem;
+    --background: #ffffff;
+    --background-image: linear-gradient(180deg, #c7d2fe 0%, #e0e7ff 30%, #ffffff 85%);
+    --foreground: #18181b;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    --card: #ffffff;
+    --border: #e4e4e7;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md:
+        0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --primary: #4f46e5;
+    --primary-foreground: #ffffff;
+    --success: #059669;
+    --error: #dc2626;
+    --dot-rgb: 99 102 241;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background: #0a0a0a;
+        --background-image: none;
+        --foreground: #fafafa;
+        --muted: #262626;
+        --muted-foreground: #a1a1aa;
+        --card: #171717;
+        --border: rgb(255 255 255 / 0.1);
+        --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+        --shadow-md:
+            0 4px 6px -1px rgb(0 0 0 / 0.5),
+            0 2px 4px -2px rgb(0 0 0 / 0.5);
+        --primary: #e5e5e5;
+        --primary-foreground: #18181b;
+        --success: #34d399;
+        --error: #f87171;
+        --dot-rgb: 255 255 255;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background);
+    background-image: var(--background-image);
+    background-repeat: no-repeat;
+    color: var(--foreground);
+    font-family:
+        'Instrument Sans',
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        'Segoe UI',
+        Roboto,
+        'Helvetica Neue',
+        Arial,
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page {
+    position: relative;
+    display: flex;
+    min-height: 100dvh;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.glow {
+    pointer-events: none;
+    position: absolute;
+    inset-inline: 0;
+    top: -3.5rem;
+    height: 24rem;
+    background: linear-gradient(
+        to bottom,
+        rgb(224 231 255 / 0.8),
+        rgb(240 249 255 / 0.5) 45%,
+        transparent
+    );
+    z-index: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .glow {
+        background: radial-gradient(
+            60% 120% at 50% 0%,
+            rgb(99 102 241 / 0.18),
+            transparent 70%
+        );
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 72rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+.brand-mark {
+    display: flex;
+    width: 1.75rem;
+    height: 1.75rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+    color: #fff;
+    background-image: linear-gradient(to bottom right, #6366f1, #8b5cf6);
+}
+
+@media (prefers-color-scheme: dark) {
+    .brand-mark {
+        background-image: none;
+        background-color: #ffffff;
+        color: #18181b;
+    }
+}
+
+.brand-mark svg {
+    width: 1rem;
+    height: 1rem;
+    animation: spin 2.4s linear infinite;
+}
+
+.brand-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.025em;
+}
+
+.soon-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: -0.5rem;
+}
+
+.brand-mark-lg {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.875rem;
+}
+
+.brand-mark-lg svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.brand-name-lg {
+    font-size: 2rem;
+    letter-spacing: -0.03em;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding-block: 4rem;
+    text-align: center;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 9999px;
+    border: 1px solid #c7d2fe;
+    background: #eef2ff;
+    color: #4338ca;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+}
+
+@media (prefers-color-scheme: dark) {
+    .badge {
+        border-color: transparent;
+        background: #262626;
+        color: #e5e5e5;
+    }
+}
+
+.badge-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 9999px;
+    background: rgb(var(--dot-rgb));
+    box-shadow: 0 0 0 0 rgb(var(--dot-rgb) / 0.5);
+    animation: pulse 1.8s ease-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgb(var(--dot-rgb) / 0.5);
+    }
+    70% {
+        box-shadow: 0 0 0 0.5rem rgb(var(--dot-rgb) / 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgb(var(--dot-rgb) / 0);
+    }
+}
+
+h1 {
+    margin: 0;
+    max-width: 20ch;
+    margin-inline: auto;
+    font-size: clamp(1.875rem, 5vw, 2.75rem);
+    line-height: 1.05;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+}
+
+.subtitle {
+    margin: 0;
+    max-width: 42rem;
+    color: var(--muted-foreground);
+    font-size: 1rem;
+    line-height: 1.6;
+    text-wrap: balance;
+}
+
+.signup-block {
+    display: flex;
+    width: 100%;
+    max-width: 26rem;
+    flex-direction: column;
+}
+
+.signup {
+    width: 100%;
+    margin: 0;
+}
+
+.signup-row {
+    display: flex;
+    align-items: stretch;
+}
+
+.signup input[type='email'] {
+    height: 2.75rem;
+    width: 100%;
+    min-width: 0;
+    flex: 1;
+    border: 1px solid var(--border);
+    border-right: 0;
+    border-radius: var(--radius) 0 0 var(--radius);
+    background: var(--card);
+    color: var(--foreground);
+    padding: 0 0.875rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.signup input[type='email']::placeholder {
+    color: var(--muted-foreground);
+}
+
+.signup input[type='email']:focus-visible {
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 2px var(--primary);
+}
+
+.signup button[type='submit'] {
+    height: 2.75rem;
+    flex-shrink: 0;
+    border: 0;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.signup button[type='submit']:hover {
+    opacity: 0.9;
+}
+
+.hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.notice {
+    margin: 0.5rem 0 0;
+    min-height: 1.5em;
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.notice.success {
+    color: var(--success);
+}
+
+.notice.error {
+    color: var(--error);
+}
+
+.features {
+    display: grid;
+    width: 100%;
+    max-width: 48rem;
+    gap: 0.75rem;
+    margin-top: 0;
+    margin-inline: auto;
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    border: 1px solid var(--border);
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: 1rem;
+    text-align: center;
+    transition:
+        transform 200ms ease,
+        box-shadow 200ms ease;
+}
+
+@media (hover: hover) {
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-md);
+    }
+}
+
+.card-icon {
+    display: flex;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-inline: auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.5rem;
+}
+
+.card-icon svg {
+    width: 1.125rem;
+    height: 1.125rem;
+}
+
+.tone-indigo {
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+.tone-sky {
+    background: #e0f2fe;
+    color: #0284c7;
+}
+.tone-emerald {
+    background: #d1fae5;
+    color: #059669;
+}
+
+@media (prefers-color-scheme: dark) {
+    .tone-indigo,
+    .tone-sky,
+    .tone-emerald {
+        background: #262626;
+        color: #e5e5e5;
+    }
+}
+
+.card h3 {
+    margin: 0.5rem 0 0;
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+.card p {
+    margin: 0.25rem 0 0;
+    color: var(--muted-foreground);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+    background: rgb(238 242 255 / 0.4);
+    border-top: 1px solid var(--border);
+}
+
+@media (prefers-color-scheme: dark) {
+    footer {
+        background: rgb(38 38 38 / 0.3);
+    }
+}
+
+.footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    max-width: 48rem;
+    padding-block: 2rem;
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+}
+
+.footer-inner p {
+    margin: 0;
+}
+
+/* Status pages (confirm / unsubscribe / errors). */
+.status-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    /* A little extra breathing room above the status heading. */
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.status-heading h1 {
+    margin: 0;
+    max-width: none;
+    margin-inline: 0;
+    text-align: left;
+}
+
+.status-icon {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+}
+
+.status-icon svg {
+    display: none;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.status-success .status-icon {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.status-error .status-icon {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.status-info .status-icon {
+    background: #e0e7ff;
+    color: #4f46e5;
+}
+
+.status-success .icon-success,
+.status-error .icon-error,
+.status-info .icon-info {
+    display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+    .status-success .status-icon,
+    .status-error .status-icon,
+    .status-info .status-icon {
+        background: #262626;
+        color: #e5e5e5;
+    }
+}
+
+.button {
+    display: inline-flex;
+    height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius);
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0 1.25rem;
+    font-size: 0.9375rem;
+    font-weight: 500;
+}
+
+.button:hover {
+    opacity: 0.9;
+}

@@ -1,0 +1,49 @@
+name = "soon-landing-page"
+main = "src/index.ts"
+compatibility_date = "2025-01-09"
+workers_dev = true
+
+# Import templates/landing.html as a text module so the markup lives in a real
+# .html file; the TypeScript shape is declared in src/types/assets.d.ts.
+[[rules]]
+type = "Text"
+globs = ["**/*.html"]
+fallthrough = true
+
+# Static assets: the landing stylesheet, linked from the rendered HTML. Matching
+# asset requests are served before the Worker runs.
+[assets]
+directory = "./public"
+
+# Subscribers are held in Resend (Contacts), not D1. Confirmation links are
+# stateless HMAC-signed tokens, so there is no database to provision. Secrets are
+# stored per environment, not in this file:
+#   wrangler secret put RESEND_API_KEY    # Contacts + sending — needs Full access
+#   wrangler secret put EMAIL_FROM        # e.g. "Soon <hello@soon.example.com>"
+#   wrangler secret put TOKEN_SECRET      # openssl rand -base64 32
+#
+# NOTE: a Resend key created with "Sending access" returns
+# `401 restricted_api_key` on every Contacts call. Use a "Full access" key.
+
+# Plain vars (not secrets). Replace the placeholders with your own values.
+# RESEND_SEGMENT_ID — Resend Segment confirmed contacts are added to (Resend
+#                     deprecated Audiences in favour of Segments); find it under
+#                     https://resend.com/audience/segments.
+# PUBLIC_BASE_URL   — absolute base for confirmation/unsubscribe links; falls
+#                     back to the request origin when unset.
+[vars]
+RESEND_SEGMENT_ID = "00000000-0000-0000-0000-000000000000"
+PUBLIC_BASE_URL = "https://soon.example.com"
+
+# Optional: bind the Worker to your zone instead of workers.dev.
+# [[routes]]
+# pattern = "soon.example.com/*"
+# zone_name = "example.com"
+
+# Native Cloudflare rate limiter for POST /subscribe, keyed on the visitor IP.
+# `period` must be 10 or 60 seconds. The binding is optional in code: when it is
+# absent the Worker simply does not rate limit (handy for local dev/tests).
+[[ratelimits]]
+name = "SUBSCRIBE_RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 5, period = 60 }
